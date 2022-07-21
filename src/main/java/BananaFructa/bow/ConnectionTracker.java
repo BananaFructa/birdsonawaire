@@ -2,7 +2,6 @@ package BananaFructa.bow;
 
 import BananaFructa.bow.events.NewConnection;
 import BananaFructa.bow.events.OldConnection;
-import BananaFructa.bow.events.SerializableSC;
 import blusunrize.immersiveengineering.api.energy.wires.ImmersiveNetHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Tuple;

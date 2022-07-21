@@ -1,4 +1,4 @@
-package BananaFructa.bow.events;
+package BananaFructa.bow;
 
 import BananaFructa.bow.SimplifiedConnection;
 import blusunrize.immersiveengineering.api.energy.wires.WireType;

@@ -1,0 +1,16 @@
+[
+{
+  "modid": "bow",
+  "name": "Birds On A Wire",
+  "description": "Adds a view for Immersive Engineering cable networks in Journey Maps.",
+  "version": "0.1",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["BananaFructa"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -25,3 +25,10 @@ replay_pid*
 
 run/*
 build/*
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea

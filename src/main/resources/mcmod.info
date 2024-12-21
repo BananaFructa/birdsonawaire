@@ -3,7 +3,7 @@
   "modid": "bow",
   "name": "Birds On A Wire",
   "description": "Adds a view for Immersive Engineering cable networks in Journey Maps.",
-  "version": "0.1",
+  "version": "0.2",
   "mcversion": "${mcversion}",
   "url": "https://www.curseforge.com/minecraft/mc-mods/birds-on-a-wire",
   "updateUrl": "",

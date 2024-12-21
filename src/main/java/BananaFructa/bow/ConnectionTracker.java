@@ -3,12 +3,17 @@ package BananaFructa.bow;
 import BananaFructa.bow.events.NewConnection;
 import BananaFructa.bow.events.OldConnection;
 import blusunrize.immersiveengineering.api.energy.wires.ImmersiveNetHandler;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
+import jdk.nashorn.internal.parser.TokenStream;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.math.Vec3i;
 import net.minecraftforge.common.MinecraftForge;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.*;
 
 public class ConnectionTracker {
@@ -123,8 +128,8 @@ public class ConnectionTracker {
             File file = new File(path);
             file.mkdirs();
             try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+
+                Gson gson = new Gson();
 
                 List<SerializableSC> serializableSCS = new ArrayList<>();
 
@@ -136,9 +141,8 @@ public class ConnectionTracker {
                     }
                 }
 
-                objectOutputStream.writeObject(serializableSCS);
-                FileOutputStream stream = new FileOutputStream(new File(file,"electric_network.bow"));
-                stream.write(byteArrayOutputStream.toByteArray());
+                BufferedWriter stream = new BufferedWriter(new FileWriter(new File(file,"electric_network.bow")));
+                stream.write(gson.toJson(serializableSCS));
                 stream.close();
             } catch (IOException exception) {
                 exception.printStackTrace();
@@ -150,12 +154,12 @@ public class ConnectionTracker {
         if (f.exists()) {
             try {
 
+                Gson gson = new Gson();
+
                 FileInputStream inputStream = new FileInputStream(f);
                 byte[] bytes = new byte[inputStream.available()];
                 inputStream.read(bytes);
-                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
-                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-                List<SerializableSC> list = (ArrayList<SerializableSC>)objectInputStream.readObject();
+                List<SerializableSC> list = gson.fromJson(new String(bytes, StandardCharsets.UTF_8),new TypeToken<List<SerializableSC>>(){}.getType());
 
                 removeAll();
 

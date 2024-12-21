@@ -16,7 +16,7 @@ public class Bow {
 
     public static final String modid = "bow";
     public static final String name = "Birds On A Wire";
-    public static final String version = "0.1";
+    public static final String version = "0.2";
     public static boolean AlternatingFluxLoaded = false;
 
     @Mod.EventHandler

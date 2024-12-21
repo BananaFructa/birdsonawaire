@@ -70,8 +70,6 @@ public class BowPlugin implements IClientPlugin {
     @SubscribeEvent
     public void onNewCon (NewConnection event) {
 
-        System.out.println("NEW CON");
-
         SimplifiedConnection con = event.con;
         int z1 = con.p1.getZ();
         int z2 = con.p2.getZ();
